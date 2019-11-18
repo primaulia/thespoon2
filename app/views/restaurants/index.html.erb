@@ -1,0 +1,25 @@
+<h2>All restaurants</h2>
+
+<h3>Search restaurant</h3>
+<!-- form to search restaurant - GET form -->
+<form action="/restaurants">
+  <input type="text" name="restaurant_name">
+  <input type="submit">
+</form>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+  <li>
+    <%= restaurant[:name] %> - <%= restaurant[:address] %>
+  </li>
+  <% end %>
+</ul>
+
+<!-- form to search restaurant - POST form -->
+<h3>Create new restaurant</h3>
+<form action="/restaurants" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name="restaurant_name">
+  <input type="submit">
+</form>
+
